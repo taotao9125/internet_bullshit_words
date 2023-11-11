@@ -1,0 +1,1 @@
+import{_ as l,o as a,c as i,Q as t}from"./chunks/framework.3e04ec81.js";const m=JSON.parse('{"title":"品牌策略","description":"","frontmatter":{},"headers":[],"relativePath":"pages/brand.md","filePath":"pages/brand.md"}'),o={name:"pages/brand.md"},s=t("",152),c=[s];function e(u,r,d,p,h,b){return a(),i("div",null,c)}const k=l(o,[["render",e]]);export{m as __pageData,k as default};

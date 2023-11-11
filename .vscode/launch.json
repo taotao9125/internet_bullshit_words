@@ -7,9 +7,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "json schema 调试",
+      "name": "格式化 raw 调试",
       // "stopOnEntry": true,
       "program": "${workspaceFolder}/index.js",
+      "sourceMaps": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "自动生成 docs 调剂",
+      // "stopOnEntry": true,
+      "program": "${workspaceFolder}/auto.js",
       "sourceMaps": true
     }
   ]

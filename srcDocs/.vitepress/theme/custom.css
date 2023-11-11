@@ -1,0 +1,32 @@
+/* .vitepress/theme/custom.css */
+.VPHome .VPHero .main .name, 
+.VPHome .VPHero .main .tagline {
+  max-width: none;
+  width: 100%;
+}
+.VPHome .VPHero .main {
+  text-align: center;
+}
+
+.VPNav .VPNavBar .container .title {
+  font-size: 14px;
+}
+
+.figma .VPDoc .container, 
+.figma .VPDoc .container .content {
+  max-width: none!important;
+  width: 100%!important;
+}
+
+
+.home {
+  background: url("/hero-bg-2x.webp") no-repeat 0 0;
+  background-size: cover;
+}
+
+.home .main {
+  margin-top: 80px;
+}
+.home .VPNav {
+  display: none;
+}

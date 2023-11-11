@@ -4,11 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:docs": "vitepress dev ./srcDocs",
+    "build:docs": "vitepress build ./srcDocs",
+    "build-pages:docs": "cross-env CONTRAINER_ENV=PAGES  yarn build:docs",
+    "serve:docs": "vitepress serve ./srcDocs",
+    "auto": "node ./auto.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pdf2json": "^3.0.5"
+    "cross-env": "^7.0.3",
+    "fs-extra": "^11.1.1",
+    "json-to-pretty-yaml": "^1.2.2",
+    "pdf2json": "^3.0.5",
+    "prettier": "^3.0.3",
+    "vitepress": "^1.0.0-rc.24",
+    "vue": "^3.3.7"
   }
 }
