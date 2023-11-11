@@ -1,9 +1,9 @@
-const fs = require('fs-extra')
-const YAML = require('json-to-pretty-yaml')
-const path = require('path')
-const docs = require('./data.json')
+const fs = require('fs-extra');
+const YAML = require('json-to-pretty-yaml');
+const path = require('path');
+const docs = require('./data.json');
 
-const PAGES = ['marketing', 'brand', 'communication', 'channel']
+const PAGES = ['marketing', 'brand', 'communication', 'channel'];
 
 function getIndexYaml(data) {
   const pageIndex = YAML.stringify({
@@ -24,9 +24,9 @@ function getIndexYaml(data) {
       },
       details: n.des,
     })),
-  })
+  });
 
-  return ['---', pageIndex, '---'].join('\n')
+  return ['---', pageIndex, '---'].join('\n');
 }
 
 function getSubPages(data) {
@@ -34,23 +34,23 @@ function getSubPages(data) {
     .map(n => {
       const subContent = n.list
         .map(n => {
-          return [`## ${n.word}`, n.explain, '::: tip 举例', `${n.examp.map(n => '- ' + n).join('\n')}`, ':::'].join('\n')
+          return [`## ${n.word}`, n.explain, '::: tip 举例', `${n.examp.map(n => '- ' + n).join('\n')}`, ':::'].join('\n');
         })
-        .join('\n')
+        .join('\n');
 
-      return [`# ${n.cat}`, n.des, subContent].join('\n')
+      return [`# ${n.cat}`, n.des, subContent].join('\n');
     })
     .map((n, i) => ({
       path: `./pages/${PAGES[i]}`,
       content: n,
-    }))
+    }));
 }
 
 getSubPages(docs.data).forEach(p => {
-  const tPath = path.join('docs', `${p.path}.md`)
-  fs.removeSync(tPath)
-  fs.ensureFileSync(tPath)
-  fs.writeFileSync(tPath, p.content)
-})
+  const tPath = path.join('docs', `${p.path}.md`);
+  fs.removeSync(tPath);
+  fs.ensureFileSync(tPath);
+  fs.writeFileSync(tPath, p.content);
+});
 
-fs.writeFileSync('./docs/index.md', getIndexYaml(docs.data))
+fs.writeFileSync('./docs/index.md', getIndexYaml(docs.data));
