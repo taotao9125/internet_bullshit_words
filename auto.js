@@ -4,6 +4,7 @@ const path = require('path');
 const docs = require('./data.json');
 
 const PAGES = ['marketing', 'brand', 'communication', 'channel'];
+const TARGET_DIR = 'srcDocs';
 
 function getIndexYaml(data) {
   const pageIndex = YAML.stringify({
@@ -12,7 +13,7 @@ function getIndexYaml(data) {
     footer: false,
     hero: {
       name: '互联网专业词汇',
-      tagline: 'Internet Bullshit Words',
+      tagline: 'Internet Bullshit Words: Let you know what the fuck they are talking about.',
     },
     features: data.map((n, i) => ({
       title: n.cat,
@@ -47,10 +48,10 @@ function getSubPages(data) {
 }
 
 getSubPages(docs.data).forEach(p => {
-  const tPath = path.join('docs', `${p.path}.md`);
+  const tPath = path.join(TARGET_DIR, `${p.path}.md`);
   fs.removeSync(tPath);
   fs.ensureFileSync(tPath);
   fs.writeFileSync(tPath, p.content);
 });
 
-fs.writeFileSync('./docs/index.md', getIndexYaml(docs.data));
+fs.writeFileSync(`./${TARGET_DIR}/index.md`, getIndexYaml(docs.data));

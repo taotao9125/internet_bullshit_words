@@ -4,7 +4,7 @@ pageClass: "home"
 footer: false
 hero:
   name: "互联网专业词汇"
-  tagline: "Internet Bullshit Words"
+  tagline: "Internet Bullshit Words: Let you know what the fuck they are talking about."
 features:
   - title: "市场策略"
     link: "/pages/marketing.html"
